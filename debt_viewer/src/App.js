@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './App.css';
 import DocumentViewer from './components/DocumentViewer/DocumentViewer';
 import FilePicker from './components/FilePicker/FilePicker';
@@ -6,9 +6,9 @@ import Sidebar from './components/Sidebar/Sidebar';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { normalizeDocument } from './utils/normalizeDocument';
-import mockDocument from './testData/mock_debtor_document.json';
-import mockDocument1Case from './testData/mock_debtor_document_1case_10invoices.json';
-import mockDocument6Cases from './testData/mock_debtor_document_6cases.json';
+import mockDocument from './testData/norsk/mock_debtor_document_norsk.json';
+import mockDocument1Case from './testData/norsk/mock_debtor_document_1case_10invoices_norsk.json';
+import mockDocument6Cases from './testData/norsk/mock_debtor_document_6cases_norsk.json';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -43,17 +43,27 @@ function createDocumentId(prefix = 'doc') {
   return `${prefix}-${Date.now()}-${randomPart}`;
 }
 
+function getCreditorKey(documentData) {
+  return documentData?.inkassoselskap || documentData?.dokumentMetadata?.kilde || '';
+}
+
 function App() {
   const [documents, setDocuments] = useState(initialDocuments);
   const [loadError, setLoadError] = useState(null);
   const [isTestPickerOpen, setIsTestPickerOpen] = useState(false);
+  const [filePickerOpenToken, setFilePickerOpenToken] = useState(0);
   const colorRegistryRef = useRef(new Map());
+  const loadErrorTimeoutRef = useRef(null);
 
   const isDev = process.env.NODE_ENV === 'development';
 
+  const existingCreditors = new Set(
+    documents.map((doc) => getCreditorKey(doc.data)).filter(Boolean)
+  );
+
   const documentCount = documents.length;
   const grandTotal = documents.reduce(
-    (sum, doc) => sum + (Number.isFinite(doc.data?.totalAmount) ? doc.data.totalAmount : 0),
+    (sum, doc) => sum + (Number.isFinite(doc.data?.totalbelop) ? doc.data.totalbelop : 0),
     0
   );
 
@@ -66,9 +76,9 @@ function App() {
   const chartDocuments = [...documents].reverse();
 
   const rawChartLabels = chartDocuments.map((doc, index) => (
-    doc.data?.documentMetadata?.source
-    || doc.data?.debtCollector
-    || `Document ${index + 1}`
+    doc.data?.dokumentMetadata?.kilde
+    || doc.data?.inkassoselskap
+    || `Dokument ${index + 1}`
   ));
 
   const labelCounts = rawChartLabels.reduce((acc, label) => {
@@ -87,7 +97,7 @@ function App() {
   });
 
   const chartValues = chartDocuments.map((doc) => (
-    Number.isFinite(doc.data?.totalAmount) ? doc.data.totalAmount : 0
+    Number.isFinite(doc.data?.totalbelop) ? doc.data.totalbelop : 0
   ));
 
   const chartColors = [
@@ -111,7 +121,7 @@ function App() {
   }
 
   function getColorForDocument(doc, index) {
-    const key = doc.id || doc.data?.documentMetadata?.source || doc.data?.debtCollector || index;
+    const key = doc.id || doc.data?.dokumentMetadata?.kilde || doc.data?.inkassoselskap || index;
     const registry = colorRegistryRef.current;
 
     if (registry.has(key)) {
@@ -166,10 +176,48 @@ function App() {
   };
 
   const availableTestDocuments = TEST_DOCUMENTS.filter(
-    (doc) => !documents.some((existing) => existing.id === doc.id)
+    (doc) => {
+      if (documents.some((existing) => existing.id === doc.id)) {
+        return false;
+      }
+
+      const creditor = getCreditorKey(doc.result.normalizedDocument);
+      if (!creditor) {
+        return true;
+      }
+
+      return !existingCreditors.has(creditor);
+    }
   );
 
+  useEffect(() => {
+    return () => {
+      if (loadErrorTimeoutRef.current) {
+        clearTimeout(loadErrorTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  function setTimedLoadError(message) {
+    if (loadErrorTimeoutRef.current) {
+      clearTimeout(loadErrorTimeoutRef.current);
+    }
+
+    setLoadError(message);
+    loadErrorTimeoutRef.current = setTimeout(() => {
+      setLoadError(null);
+      loadErrorTimeoutRef.current = null;
+    }, 30000);
+  }
+
   function handleDocumentLoad(normalizedDocument, warnings) {
+    const creditor = getCreditorKey(normalizedDocument);
+
+    if (creditor && existingCreditors.has(creditor)) {
+      setLoadError(`Could not add document: creditor '${creditor}' is already loaded.`);
+      return;
+    }
+
     setDocuments((prev) => [
       ...prev,
       {
@@ -182,7 +230,11 @@ function App() {
   }
 
   function handleLoadError(message) {
-    setLoadError(message);
+    setTimedLoadError(message);
+  }
+
+  function handleOpenRealDataPicker() {
+    setFilePickerOpenToken((prev) => prev + 1);
   }
 
   function handleOpenTestPicker() {
@@ -197,6 +249,14 @@ function App() {
     const selected = TEST_DOCUMENTS.find((doc) => doc.id === docId);
 
     if (!selected) {
+      return;
+    }
+
+    const creditor = getCreditorKey(selected.result.normalizedDocument);
+
+    if (creditor && existingCreditors.has(creditor)) {
+      setLoadError(`Could not add document: creditor '${creditor}' is already loaded.`);
+      setIsTestPickerOpen(false);
       return;
     }
 
@@ -225,12 +285,14 @@ function App() {
         <Sidebar
           documents={documents}
           onChooseTestData={handleOpenTestPicker}
+          onUploadRealData={handleOpenRealDataPicker}
           onRemoveDocument={handleRemoveDocument}
         />
         <section className="app-content">
           <FilePicker
             onDocumentLoad={handleDocumentLoad}
             onError={handleLoadError}
+            openRequestToken={filePickerOpenToken}
           />
 
           {loadError && (

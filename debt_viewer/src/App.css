@@ -199,8 +199,10 @@ main {
 }
 
 .load-error {
-  max-width: 860px;
-  margin: 1rem auto;
+  width: 100%;
+  max-width: 900px;
+  box-sizing: border-box;
+  margin: 1rem 0;
   padding: 0.75rem 1rem;
   background: #ffebee;
   border-left: 4px solid #c62828;
@@ -410,6 +412,56 @@ main {
   border-radius: 4px;
   background: #fafafa;
   padding: 0.6rem 1rem 0.3rem;
+}
+
+.belop-details {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 0.5rem 0;
+}
+
+.belop-details-summary {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  list-style: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  padding: 0;
+}
+
+.belop-details-summary::-webkit-details-marker {
+  display: none;
+}
+
+.belop-details-summary::before {
+  content: '▶';
+  font-size: 0.6rem;
+  color: #1976d2;
+  flex-shrink: 0;
+  transition: transform 0.15s;
+}
+
+.belop-details[open] > .belop-details-summary::before {
+  transform: rotate(90deg);
+}
+
+.belop-details-summary .belop-summary-label {
+  flex: 0 0 200px;
+}
+
+.belop-details-summary .belop-summary-value {
+  flex: 1 1 200px;
+}
+
+.belop-breakdown {
+  margin-top: 0.25rem;
+}
+
+.case-card .section-renderer.belop-breakdown {
+  border-left: 2px solid #bbdefb;
+  padding-left: 0.75rem;
 }
 
 .case-card .section-renderer {

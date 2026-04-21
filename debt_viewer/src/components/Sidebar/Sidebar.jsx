@@ -2,13 +2,13 @@ import React from 'react';
 
 function getDocumentLabel(documentData, fallback) {
   return (
-    documentData?.documentMetadata?.source
-    || documentData?.debtCollector
+    documentData?.dokumentMetadata?.kilde
+    || documentData?.inkassoselskap
     || fallback
   );
 }
 
-function Sidebar({ documents, onChooseTestData, onRemoveDocument }) {
+function Sidebar({ documents, onChooseTestData, onUploadRealData, onRemoveDocument }) {
   return (
     <aside className="sidebar" aria-label="Document controls">
       <div className="sidebar-section">
@@ -17,7 +17,7 @@ function Sidebar({ documents, onChooseTestData, onRemoveDocument }) {
           <button type="button" className="sidebar-button" onClick={onChooseTestData}>
             Choose Test Data
           </button>
-          <button type="button" className="sidebar-button">
+          <button type="button" className="sidebar-button" onClick={onUploadRealData}>
             Upload Real Data
           </button>
         </div>

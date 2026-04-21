@@ -1,0 +1,82 @@
+{
+  "dokumentMetadata": {
+    "kilde": "Test Validation Agency",
+    "dokumenttype": "Debt Collection Statement",
+    "uttrekkDato": "2026-03-27T11:00:00.000Z",
+    "pdfLenke": "https://example.invalid/invalid-statement.pdf",
+    "dokumentDato": "27.03.2026"
+  },
+  "totalbelop": "18450.25",
+  "antallSaker": 1,
+  "saker": [
+    {
+      "identifikatorer": {
+        "Saksnummer": "TVA-2026-901",
+        "referansenummer": "REF-901-X",
+        "kundenummer": "CUST-99001"
+      },
+      "belop": {
+        "totalbelop": 18450.25,
+        "restHovedstol": 15000,
+        "renter": 1700,
+        "gebyrer": 300,
+        "inkassosalear": 1200,
+        "renterAvOmkostninger": 250.25
+      },
+      "datoer": {
+        "fakturadato": "10.02.2026",
+        "opprinneligForfallsdato": "24.02.2026",
+        "utstedtDato": "05.03.2026",
+        "betalingsfrist": "15.04.2026"
+      },
+      "parter": {
+        "inkassoselskap": "Test Validation Agency",
+        "Fordringshaver": "Mock Utility Provider",
+        "opprinneligFordringshaver": "Mock Utility Provider",
+        "skyldner": {
+          "navn": "Invalid Example",
+          "fodselsnummer": "99988877766",
+          "adresse": {
+            "gateadresse": "Schema Street 1",
+            "postnummer": "0101",
+            "poststed": "Oslo",
+            "land": "Norway"
+          }
+        }
+      },
+      "detaljer": {
+        "sakStatus": "Active",
+        "beskrivelse": "Intentional invalid document for validation testing.",
+        "grunnlagForKrav": "Invoice arrears",
+        "sendteFakturaer": [
+          {
+            "fakturanummer": "INV-TVA-901-01",
+            "fakturadato": "10.02.2026",
+            "forfallsdato": "24.02.2026",
+            "belop": 7500,
+            "beskrivelse": "Energy invoice period 1"
+          },
+          {
+            "fakturanummer": "INV-TVA-901-02",
+            "fakturadato": "17.02.2026",
+            "forfallsdato": "03.03.2026",
+            "belop": 7500,
+            "beskrivelse": "Energy invoice period 2"
+          }
+        ],
+        "kravtype": "invoice",
+        "notater": "Invalid by design: missing root debtCollector + totalAmount type mismatch.",
+        "KID": "10000000001",
+        "mottakerKonto": "1503.45.67891",
+        "innbetalinger": [
+          {
+            "betalingsdato": "05.03.2026",
+            "belop": 0,
+            "referanse": "MOCK-INGEN-INNBETALING",
+            "kommentar": "Ingen innbetaling registrert i mockdata"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,233 @@
+{
+  "dokumentMetadata": {
+    "kilde": "Nordic Recovery Partners",
+    "dokumenttype": "Debt Collection Statement",
+    "uttrekkDato": "2026-03-27T09:30:00.000Z",
+    "pdfLenke": "https://example.invalid/three-case-statement.pdf",
+    "dokumentDato": "27.03.2026"
+  },
+  "totalbelop": 47403.75,
+  "antallSaker": 3,
+  "inkassoselskap": "Nordic Recovery Partners",
+  "saker": [
+    {
+      "identifikatorer": {
+        "Saksnummer": "NRP-2026-301",
+        "referansenummer": "REF-301-A1",
+        "kundenummer": "CUST-43001"
+      },
+      "belop": {
+        "totalbelop": 16240.5,
+        "restHovedstol": 13000,
+        "opprinneligBelop": 13000,
+        "renter": 1450,
+        "gebyrer": 390,
+        "inkassosalear": 1200,
+        "renterAvOmkostninger": 200.5
+      },
+      "rente": 15,
+      "datoer": {
+        "fakturadato": "09.01.2026",
+        "opprinneligForfallsdato": "23.01.2026",
+        "utstedtDato": "03.02.2026",
+        "betalingsfrist": "14.04.2026"
+      },
+      "parter": {
+        "inkassoselskap": "Nordic Recovery Partners",
+        "Fordringshaver": "Fjord Power Grid AS",
+        "opprinneligFordringshaver": "Fjord Power Grid AS",
+        "skyldner": {
+          "navn": "Jamie Example",
+          "fodselsnummer": "11122334455",
+          "telefonnummer": "+4700000000",
+          "epostadresse": "mock@eksempel.invalid",
+          "adresse": {
+            "gateadresse": "Havnata 14",
+            "postnummer": "5003",
+            "poststed": "Bergen",
+            "land": "Norway"
+          }
+        }
+      },
+      "detaljer": {
+        "sakStatus": "Active",
+        "beskrivelse": "Outstanding energy and network tariffs for winter period.",
+        "grunnlagForKrav": "Utility invoice arrears",
+        "sendteFakturaer": [
+          {
+            "fakturanummer": "INV-NRP-301-01",
+            "fakturadato": "09.01.2026",
+            "forfallsdato": "23.01.2026",
+            "belop": 6500,
+            "beskrivelse": "Electricity consumption and fixed charges"
+          },
+          {
+            "fakturanummer": "INV-NRP-301-02",
+            "fakturadato": "16.01.2026",
+            "forfallsdato": "30.01.2026",
+            "belop": 6500,
+            "beskrivelse": "Grid rent and spot price adjustment"
+          }
+        ],
+        "innbetalinger": [
+          {
+            "betalingsdato": "03.02.2026",
+            "belop": 0,
+            "referanse": "MOCK-INGEN-INNBETALING",
+            "kommentar": "Ingen innbetaling registrert i mockdata"
+          }
+        ],
+        "kravtype": "invoice",
+        "notater": "Case 1 of 3 - Mock data only.",
+        "KID": "10000000001",
+        "mottakerKonto": "1503.45.67891"
+      }
+    },
+    {
+      "identifikatorer": {
+        "Saksnummer": "NRP-2026-302",
+        "referansenummer": "REF-302-B4",
+        "kundenummer": "CUST-43002"
+      },
+      "belop": {
+        "totalbelop": 11163.25,
+        "restHovedstol": 9200,
+        "opprinneligBelop": 9200,
+        "renter": 780,
+        "gebyrer": 250,
+        "inkassosalear": 850,
+        "renterAvOmkostninger": 83.25
+      },
+      "rente": 8,
+      "datoer": {
+        "fakturadato": "15.11.2025",
+        "opprinneligForfallsdato": "29.11.2025",
+        "utstedtDato": "18.12.2025",
+        "betalingsfrist": "14.04.2026"
+      },
+      "parter": {
+        "inkassoselskap": "Nordic Recovery Partners",
+        "Fordringshaver": "Northwave Telecom AS",
+        "opprinneligFordringshaver": "Northwave Telecom AS",
+        "skyldner": {
+          "navn": "Jamie Example",
+          "fodselsnummer": "11122334455",
+          "telefonnummer": "+4700000000",
+          "epostadresse": "mock@eksempel.invalid",
+          "adresse": {
+            "gateadresse": "Havnata 14",
+            "postnummer": "5003",
+            "poststed": "Bergen",
+            "land": "Norway"
+          }
+        }
+      },
+      "detaljer": {
+        "sakStatus": "Active",
+        "beskrivelse": "Unpaid broadband and mobile bundle invoices.",
+        "grunnlagForKrav": "Subscription contract",
+        "sendteFakturaer": [
+          {
+            "fakturanummer": "INV-NRP-302-01",
+            "fakturadato": "15.11.2025",
+            "forfallsdato": "29.11.2025",
+            "belop": 4600,
+            "beskrivelse": "Mobile and broadband package - period 1"
+          },
+          {
+            "fakturanummer": "INV-NRP-302-02",
+            "fakturadato": "15.12.2025",
+            "forfallsdato": "29.12.2025",
+            "belop": 4600,
+            "beskrivelse": "Mobile and broadband package - period 2"
+          }
+        ],
+        "innbetalinger": [
+          {
+            "betalingsdato": "18.12.2025",
+            "belop": 0,
+            "referanse": "MOCK-INGEN-INNBETALING",
+            "kommentar": "Ingen innbetaling registrert i mockdata"
+          }
+        ],
+        "kravtype": "contract",
+        "notater": "Case 2 of 3 - Fully synthetic values.",
+        "KID": "10000000002",
+        "mottakerKonto": "1503.45.67892"
+      }
+    },
+    {
+      "identifikatorer": {
+        "Saksnummer": "NRP-2026-303",
+        "referansenummer": "REF-303-C9",
+        "kundenummer": "CUST-43003"
+      },
+      "belop": {
+        "totalbelop": 20000,
+        "restHovedstol": 16500,
+        "opprinneligBelop": 16500,
+        "renter": 1900,
+        "gebyrer": 400,
+        "inkassosalear": 1050,
+        "renterAvOmkostninger": 150
+      },
+      "rente": 19,
+      "datoer": {
+        "fakturadato": "03.10.2025",
+        "opprinneligForfallsdato": "17.10.2025",
+        "utstedtDato": "07.11.2025",
+        "betalingsfrist": "14.04.2026"
+      },
+      "parter": {
+        "inkassoselskap": "Nordic Recovery Partners",
+        "Fordringshaver": "Vestland Equipment Leasing",
+        "opprinneligFordringshaver": "Vestland Equipment Leasing",
+        "skyldner": {
+          "navn": "Jamie Example",
+          "fodselsnummer": "11122334455",
+          "telefonnummer": "+4700000000",
+          "epostadresse": "mock@eksempel.invalid",
+          "adresse": {
+            "gateadresse": "Havnata 14",
+            "postnummer": "5003",
+            "poststed": "Bergen",
+            "land": "Norway"
+          }
+        }
+      },
+      "detaljer": {
+        "sakStatus": "Active",
+        "beskrivelse": "Past-due equipment lease installments and service surcharge.",
+        "grunnlagForKrav": "Lease agreement",
+        "sendteFakturaer": [
+          {
+            "fakturanummer": "INV-NRP-303-01",
+            "fakturadato": "03.10.2025",
+            "forfallsdato": "17.10.2025",
+            "belop": 8250,
+            "beskrivelse": "Lease installment and maintenance fee - October"
+          },
+          {
+            "fakturanummer": "INV-NRP-303-02",
+            "fakturadato": "03.11.2025",
+            "forfallsdato": "17.11.2025",
+            "belop": 8250,
+            "beskrivelse": "Lease installment and maintenance fee - November"
+          }
+        ],
+        "innbetalinger": [
+          {
+            "betalingsdato": "07.11.2025",
+            "belop": 0,
+            "referanse": "MOCK-INGEN-INNBETALING",
+            "kommentar": "Ingen innbetaling registrert i mockdata"
+          }
+        ],
+        "kravtype": "contract",
+        "notater": "Case 3 of 3 - Generated for parser and UI testing.",
+        "KID": "10000000003",
+        "mottakerKonto": "1503.45.67893"
+      }
+    }
+  ]
+}

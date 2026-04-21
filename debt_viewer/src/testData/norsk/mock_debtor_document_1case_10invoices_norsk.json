@@ -1,0 +1,143 @@
+{
+  "dokumentMetadata": {
+    "kilde": "Invoice Collector Services",
+    "dokumenttype": "Debt Collection Statement",
+    "uttrekkDato": "2026-03-25T16:45:00.000Z",
+    "pdfLenke": "https://example.invalid/invoice-heavy-statement.pdf",
+    "dokumentDato": "25.03.2026"
+  },
+  "totalbelop": 28500,
+  "antallSaker": 1,
+  "inkassoselskap": "Invoice Collector Services",
+  "saker": [
+    {
+      "identifikatorer": {
+        "Saksnummer": "ICS-2026-501",
+        "referansenummer": "REF-5501-MULTI",
+        "kundenummer": "CUST-30001"
+      },
+      "belop": {
+        "totalbelop": 28500,
+        "restHovedstol": 22000,
+        "opprinneligBelop": 22000,
+        "renter": 3500,
+        "gebyrer": 1200,
+        "inkassosalear": 1500,
+        "renterAvOmkostninger": 300
+      },
+      "rente": 20,
+      "datoer": {
+        "fakturadato": "05.08.2025",
+        "opprinneligForfallsdato": "19.08.2025",
+        "utstedtDato": "01.09.2025",
+        "betalingsfrist": "01.05.2026"
+      },
+      "parter": {
+        "inkassoselskap": "Invoice Collector Services",
+        "Fordringshaver": "Premier Wholesale Supply",
+        "opprinneligFordringshaver": "Premier Wholesale Supply",
+        "skyldner": {
+          "navn": "Parker Sample",
+          "fodselsnummer": "89012345678",
+          "telefonnummer": "+4700000000",
+          "epostadresse": "mock@eksempel.invalid",
+          "adresse": {
+            "gateadresse": "Commercial Street 333",
+            "postnummer": "4567",
+            "poststed": "Trading Hub",
+            "land": "Norway"
+          }
+        }
+      },
+      "detaljer": {
+        "sakStatus": "Active",
+        "beskrivelse": "Multiple unpaid wholesale supply invoices accumulated over 6 months.",
+        "grunnlagForKrav": "Outstanding supply chain invoices",
+        "sendteFakturaer": [
+          {
+            "fakturanummer": "INV-PWS-2025-001",
+            "fakturadato": "05.08.2025",
+            "forfallsdato": "19.08.2025",
+            "belop": 2200,
+            "beskrivelse": "Bulk office supplies - August"
+          },
+          {
+            "fakturanummer": "INV-PWS-2025-002",
+            "fakturadato": "12.08.2025",
+            "forfallsdato": "26.08.2025",
+            "belop": 2150,
+            "beskrivelse": "Cleaning materials and equipment"
+          },
+          {
+            "fakturanummer": "INV-PWS-2025-003",
+            "fakturadato": "20.08.2025",
+            "forfallsdato": "03.09.2025",
+            "belop": 2300,
+            "beskrivelse": "Stationery and packaging supplies"
+          },
+          {
+            "fakturanummer": "INV-PWS-2025-004",
+            "fakturadato": "05.09.2025",
+            "forfallsdato": "19.09.2025",
+            "belop": 2200,
+            "beskrivelse": "Bulk office supplies - September"
+          },
+          {
+            "fakturanummer": "INV-PWS-2025-005",
+            "fakturadato": "12.09.2025",
+            "forfallsdato": "26.09.2025",
+            "belop": 2250,
+            "beskrivelse": "Promotional and marketing materials"
+          },
+          {
+            "fakturanummer": "INV-PWS-2025-006",
+            "fakturadato": "03.10.2025",
+            "forfallsdato": "17.10.2025",
+            "belop": 2200,
+            "beskrivelse": "Bulk office supplies - October"
+          },
+          {
+            "fakturanummer": "INV-PWS-2025-007",
+            "fakturadato": "10.10.2025",
+            "forfallsdato": "24.10.2025",
+            "belop": 2175,
+            "beskrivelse": "Industrial supplies and maintenance"
+          },
+          {
+            "fakturanummer": "INV-PWS-2025-008",
+            "fakturadato": "05.11.2025",
+            "forfallsdato": "19.11.2025",
+            "belop": 2200,
+            "beskrivelse": "Bulk office supplies - November"
+          },
+          {
+            "fakturanummer": "INV-PWS-2025-009",
+            "fakturadato": "15.11.2025",
+            "forfallsdato": "29.11.2025",
+            "belop": 2300,
+            "beskrivelse": "Seasonal supplies and storage materials"
+          },
+          {
+            "fakturanummer": "INV-PWS-2025-010",
+            "fakturadato": "01.12.2025",
+            "forfallsdato": "15.12.2025",
+            "belop": 2225,
+            "beskrivelse": "Year-end office supplies - December"
+          }
+        ],
+        "innbetalinger": [
+          {
+            "betalingsdato": "01.09.2025",
+            "belop": 0,
+            "referanse": "MOCK-INGEN-INNBETALING",
+            "kommentar": "Ingen innbetaling registrert i mockdata"
+          }
+        ],
+        "kravtype": "invoice",
+        "notater": "Single case with 10 invoices - entirely synthetic test data.",
+        "KID": "10000000001",
+        "mottakerKonto": "1503.45.67891"
+      }
+    }
+  ]
+}

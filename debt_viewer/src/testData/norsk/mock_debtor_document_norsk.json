@@ -1,0 +1,160 @@
+{
+  "dokumentMetadata": {
+    "kilde": "MockCreditor AS",
+    "dokumenttype": "Debt Collection Statement",
+    "uttrekkDato": "2026-03-25T12:00:00.000Z",
+    "pdfLenke": "https://example.invalid/mock-statement.pdf",
+    "dokumentDato": "25.03.2026"
+  },
+  "totalbelop": 30547.5,
+  "antallSaker": 2,
+  "inkassoselskap": "MockCreditor AS",
+  "saker": [
+    {
+      "identifikatorer": {
+        "Saksnummer": "MC-2026-001",
+        "referansenummer": "REF-7788-A",
+        "kundenummer": "CUST-10021"
+      },
+      "belop": {
+        "totalbelop": 12047.5,
+        "restHovedstol": 10000,
+        "opprinneligBelop": 10000,
+        "renter": 850,
+        "gebyrer": 225,
+        "inkassosalear": 900,
+        "renterAvOmkostninger": 72.5
+      },
+      "rente": 9,
+      "datoer": {
+        "fakturadato": "14.01.2026",
+        "opprinneligForfallsdato": "28.01.2026",
+        "utstedtDato": "05.02.2026",
+        "betalingsfrist": "02.04.2026"
+      },
+      "parter": {
+        "inkassoselskap": "MockCreditor AS",
+        "Fordringshaver": "Northern Utilities Ltd",
+        "opprinneligFordringshaver": "Northern Utilities Ltd",
+        "skyldner": {
+          "navn": "Alex Sample",
+          "fodselsnummer": "12345678901",
+          "telefonnummer": "+4700000000",
+          "epostadresse": "mock@eksempel.invalid",
+          "adresse": {
+            "gateadresse": "Example Street 12",
+            "postnummer": "0456",
+            "poststed": "Mocktown",
+            "land": "Norway"
+          }
+        }
+      },
+      "detaljer": {
+        "sakStatus": "Active",
+        "beskrivelse": "Unpaid utility charges for two periods.",
+        "grunnlagForKrav": "Service invoice arrears",
+        "sendteFakturaer": [
+          {
+            "fakturanummer": "INV-90001",
+            "fakturadato": "14.01.2026",
+            "forfallsdato": "28.01.2026",
+            "belop": 6000,
+            "beskrivelse": "Electricity and grid costs"
+          },
+          {
+            "fakturanummer": "INV-90002",
+            "fakturadato": "21.01.2026",
+            "forfallsdato": "04.02.2026",
+            "belop": 4000,
+            "beskrivelse": "Additional service period"
+          }
+        ],
+        "innbetalinger": [
+          {
+            "betalingsdato": "05.02.2026",
+            "belop": 0,
+            "referanse": "MOCK-INGEN-INNBETALING",
+            "kommentar": "Ingen innbetaling registrert i mockdata"
+          }
+        ],
+        "kravtype": "invoice",
+        "notater": "Mock data for schema testing only.",
+        "KID": "10000000001",
+        "mottakerKonto": "1503.45.67891"
+      }
+    },
+    {
+      "identifikatorer": {
+        "Saksnummer": "MC-2026-002",
+        "referansenummer": "REF-1122-B",
+        "kundenummer": "CUST-10022"
+      },
+      "belop": {
+        "totalbelop": 18500,
+        "restHovedstol": 16000,
+        "opprinneligBelop": 16000,
+        "renter": 950,
+        "gebyrer": 300,
+        "inkassosalear": 1100,
+        "renterAvOmkostninger": 150
+      },
+      "rente": 10,
+      "datoer": {
+        "fakturadato": "03.12.2025",
+        "opprinneligForfallsdato": "17.12.2025",
+        "utstedtDato": "10.01.2026",
+        "betalingsfrist": "02.04.2026"
+      },
+      "parter": {
+        "inkassoselskap": "MockCreditor AS",
+        "Fordringshaver": "Scandinavian Telecom Services",
+        "opprinneligFordringshaver": "Scandinavian Telecom Services",
+        "skyldner": {
+          "navn": "Alex Sample",
+          "fodselsnummer": "12345678901",
+          "telefonnummer": "+4700000000",
+          "epostadresse": "mock@eksempel.invalid",
+          "adresse": {
+            "gateadresse": "Example Street 12",
+            "postnummer": "0456",
+            "poststed": "Mocktown",
+            "land": "Norway"
+          }
+        }
+      },
+      "detaljer": {
+        "sakStatus": "Active",
+        "beskrivelse": "Outstanding telecom subscription and device installment.",
+        "grunnlagForKrav": "Subscription contract invoice",
+        "sendteFakturaer": [
+          {
+            "fakturanummer": "INV-81010",
+            "fakturadato": "03.12.2025",
+            "forfallsdato": "17.12.2025",
+            "belop": 8000,
+            "beskrivelse": "Subscription and usage charges"
+          },
+          {
+            "fakturanummer": "INV-81011",
+            "fakturadato": "03.01.2026",
+            "forfallsdato": "17.01.2026",
+            "belop": 8000,
+            "beskrivelse": "Device installment"
+          }
+        ],
+        "innbetalinger": [
+          {
+            "betalingsdato": "10.01.2026",
+            "belop": 0,
+            "referanse": "MOCK-INGEN-INNBETALING",
+            "kommentar": "Ingen innbetaling registrert i mockdata"
+          }
+        ],
+        "kravtype": "contract",
+        "notater": "Synthetic values; no real debtor data included.",
+        "KID": "10000000002",
+        "mottakerKonto": "1503.45.67892"
+      }
+    }
+  ]
+}

@@ -1,0 +1,459 @@
+{
+  "dokumentMetadata": {
+    "kilde": "MultiCase Collections Ltd",
+    "dokumenttype": "Debt Collection Statement",
+    "uttrekkDato": "2026-03-25T14:30:00.000Z",
+    "pdfLenke": "https://example.invalid/multi-case-statement.pdf",
+    "dokumentDato": "25.03.2026"
+  },
+  "totalbelop": 87654.25,
+  "antallSaker": 6,
+  "inkassoselskap": "MultiCase Collections Ltd",
+  "saker": [
+    {
+      "identifikatorer": {
+        "Saksnummer": "MC-2026-101",
+        "referansenummer": "REF-8801-A",
+        "kundenummer": "CUST-20001"
+      },
+      "belop": {
+        "totalbelop": 15234.5,
+        "restHovedstol": 12000,
+        "opprinneligBelop": 12000,
+        "renter": 1200,
+        "gebyrer": 350,
+        "inkassosalear": 1400,
+        "renterAvOmkostninger": 284.5
+      },
+      "rente": 12,
+      "datoer": {
+        "fakturadato": "10.01.2026",
+        "opprinneligForfallsdato": "24.01.2026",
+        "utstedtDato": "01.02.2026",
+        "betalingsfrist": "01.04.2026"
+      },
+      "parter": {
+        "inkassoselskap": "MultiCase Collections Ltd",
+        "Fordringshaver": "Nordic Energy Corp",
+        "opprinneligFordringshaver": "Nordic Energy Corp",
+        "skyldner": {
+          "navn": "Jordan Sample",
+          "fodselsnummer": "23456789012",
+          "telefonnummer": "+4700000000",
+          "epostadresse": "mock@eksempel.invalid",
+          "adresse": {
+            "gateadresse": "Sample Avenue 42",
+            "postnummer": "0123",
+            "poststed": "Sampleville",
+            "land": "Norway"
+          }
+        }
+      },
+      "detaljer": {
+        "sakStatus": "Active",
+        "beskrivelse": "Unpaid energy bills from Q4 2025 and Q1 2026.",
+        "grunnlagForKrav": "Utility invoice arrears",
+        "sendteFakturaer": [
+          {
+            "fakturanummer": "INV-88001",
+            "fakturadato": "10.01.2026",
+            "forfallsdato": "24.01.2026",
+            "belop": 6000,
+            "beskrivelse": "Electricity consumption Q4 2025"
+          },
+          {
+            "fakturanummer": "INV-88002",
+            "fakturadato": "15.01.2026",
+            "forfallsdato": "29.01.2026",
+            "belop": 6000,
+            "beskrivelse": "Grid fees and distribution"
+          }
+        ],
+        "innbetalinger": [
+          {
+            "betalingsdato": "01.02.2026",
+            "belop": 0,
+            "referanse": "MOCK-INGEN-INNBETALING",
+            "kommentar": "Ingen innbetaling registrert i mockdata"
+          }
+        ],
+        "kravtype": "invoice",
+        "notater": "Case 1 of 6 - Mock data only.",
+        "KID": "10000000001",
+        "mottakerKonto": "1503.45.67891"
+      }
+    },
+    {
+      "identifikatorer": {
+        "Saksnummer": "MC-2026-102",
+        "referansenummer": "REF-9902-B",
+        "kundenummer": "CUST-20002"
+      },
+      "belop": {
+        "totalbelop": 9875,
+        "restHovedstol": 8500,
+        "opprinneligBelop": 8500,
+        "renter": 650,
+        "gebyrer": 200,
+        "inkassosalear": 450,
+        "renterAvOmkostninger": 75
+      },
+      "rente": 7,
+      "datoer": {
+        "fakturadato": "05.11.2025",
+        "opprinneligForfallsdato": "19.11.2025",
+        "utstedtDato": "15.12.2025",
+        "betalingsfrist": "15.04.2026"
+      },
+      "parter": {
+        "inkassoselskap": "MultiCase Collections Ltd",
+        "Fordringshaver": "DataNet Communications",
+        "opprinneligFordringshaver": "DataNet Communications",
+        "skyldner": {
+          "navn": "Robin Sample",
+          "fodselsnummer": "34567890123",
+          "telefonnummer": "+4700000000",
+          "epostadresse": "mock@eksempel.invalid",
+          "adresse": {
+            "gateadresse": "Mock Road 88",
+            "postnummer": "5432",
+            "poststed": "Testborough",
+            "land": "Norway"
+          }
+        }
+      },
+      "detaljer": {
+        "sakStatus": "Active",
+        "beskrivelse": "Unpaid internet service subscription for 3 months.",
+        "grunnlagForKrav": "Service subscription contract",
+        "sendteFakturaer": [
+          {
+            "fakturanummer": "INV-77001",
+            "fakturadato": "05.11.2025",
+            "forfallsdato": "19.11.2025",
+            "belop": 2899,
+            "beskrivelse": "Internet service - November"
+          },
+          {
+            "fakturanummer": "INV-77002",
+            "fakturadato": "05.12.2025",
+            "forfallsdato": "19.12.2025",
+            "belop": 2899,
+            "beskrivelse": "Internet service - December"
+          },
+          {
+            "fakturanummer": "INV-77003",
+            "fakturadato": "05.01.2026",
+            "forfallsdato": "19.01.2026",
+            "belop": 2702,
+            "beskrivelse": "Internet service - January"
+          }
+        ],
+        "innbetalinger": [
+          {
+            "betalingsdato": "15.12.2025",
+            "belop": 0,
+            "referanse": "MOCK-INGEN-INNBETALING",
+            "kommentar": "Ingen innbetaling registrert i mockdata"
+          }
+        ],
+        "kravtype": "contract",
+        "notater": "Case 2 of 6 - Synthetic values.",
+        "KID": "10000000002",
+        "mottakerKonto": "1503.45.67892"
+      }
+    },
+    {
+      "identifikatorer": {
+        "Saksnummer": "MC-2026-103",
+        "referansenummer": "REF-5543-C",
+        "kundenummer": "CUST-20003"
+      },
+      "belop": {
+        "totalbelop": 22100.75,
+        "restHovedstol": 18500,
+        "opprinneligBelop": 18500,
+        "renter": 2100,
+        "gebyrer": 600,
+        "inkassosalear": 750,
+        "renterAvOmkostninger": 150.75
+      },
+      "rente": 20,
+      "datoer": {
+        "fakturadato": "20.10.2025",
+        "opprinneligForfallsdato": "03.11.2025",
+        "utstedtDato": "20.11.2025",
+        "betalingsfrist": "20.04.2026"
+      },
+      "parter": {
+        "inkassoselskap": "MultiCase Collections Ltd",
+        "Fordringshaver": "Retail Merchants Bank",
+        "opprinneligFordringshaver": "Retail Merchants Bank",
+        "skyldner": {
+          "navn": "Casey Sample",
+          "fodselsnummer": "45678901234",
+          "telefonnummer": "+4700000000",
+          "epostadresse": "mock@eksempel.invalid",
+          "adresse": {
+            "gateadresse": "Test Lane 55",
+            "postnummer": "7890",
+            "poststed": "Mockfield",
+            "land": "Norway"
+          }
+        }
+      },
+      "detaljer": {
+        "sakStatus": "Active",
+        "beskrivelse": "Credit card debt from multiple transactions.",
+        "grunnlagForKrav": "Credit card statement",
+        "sendteFakturaer": [
+          {
+            "fakturanummer": "INV-66001",
+            "fakturadato": "20.10.2025",
+            "forfallsdato": "03.11.2025",
+            "belop": 9250,
+            "beskrivelse": "Credit card statement October"
+          },
+          {
+            "fakturanummer": "INV-66002",
+            "fakturadato": "20.11.2025",
+            "forfallsdato": "03.12.2025",
+            "belop": 9250,
+            "beskrivelse": "Credit card statement November"
+          }
+        ],
+        "innbetalinger": [
+          {
+            "betalingsdato": "20.11.2025",
+            "belop": 0,
+            "referanse": "MOCK-INGEN-INNBETALING",
+            "kommentar": "Ingen innbetaling registrert i mockdata"
+          }
+        ],
+        "kravtype": "invoice",
+        "notater": "Case 3 of 6 - Mock financial data.",
+        "KID": "10000000003",
+        "mottakerKonto": "1503.45.67893"
+      }
+    },
+    {
+      "identifikatorer": {
+        "Saksnummer": "MC-2026-104",
+        "referansenummer": "REF-4411-D",
+        "kundenummer": "CUST-20004"
+      },
+      "belop": {
+        "totalbelop": 5600,
+        "restHovedstol": 4500,
+        "opprinneligBelop": 4500,
+        "renter": 450,
+        "gebyrer": 150,
+        "inkassosalear": 400,
+        "renterAvOmkostninger": 100
+      },
+      "rente": 5,
+      "datoer": {
+        "fakturadato": "08.02.2026",
+        "opprinneligForfallsdato": "22.02.2026",
+        "utstedtDato": "28.02.2026",
+        "betalingsfrist": "28.04.2026"
+      },
+      "parter": {
+        "inkassoselskap": "MultiCase Collections Ltd",
+        "Fordringshaver": "Stream Entertainment Services",
+        "opprinneligFordringshaver": "Stream Entertainment Services",
+        "skyldner": {
+          "navn": "Taylor Sample",
+          "fodselsnummer": "56789012345",
+          "telefonnummer": "+4700000000",
+          "epostadresse": "mock@eksempel.invalid",
+          "adresse": {
+            "gateadresse": "Example Drive 100",
+            "postnummer": "3210",
+            "poststed": "Demotown",
+            "land": "Norway"
+          }
+        }
+      },
+      "detaljer": {
+        "sakStatus": "Active",
+        "beskrivelse": "Unpaid streaming service subscriptions.",
+        "grunnlagForKrav": "Service agreement",
+        "sendteFakturaer": [
+          {
+            "fakturanummer": "INV-55001",
+            "fakturadato": "08.02.2026",
+            "forfallsdato": "22.02.2026",
+            "belop": 2250,
+            "beskrivelse": "Premium streaming - 3 months"
+          },
+          {
+            "fakturanummer": "INV-55002",
+            "fakturadato": "01.03.2026",
+            "forfallsdato": "15.03.2026",
+            "belop": 2250,
+            "beskrivelse": "Premium streaming - extension"
+          }
+        ],
+        "innbetalinger": [
+          {
+            "betalingsdato": "28.02.2026",
+            "belop": 0,
+            "referanse": "MOCK-INGEN-INNBETALING",
+            "kommentar": "Ingen innbetaling registrert i mockdata"
+          }
+        ],
+        "kravtype": "contract",
+        "notater": "Case 4 of 6 - Test data only.",
+        "KID": "10000000004",
+        "mottakerKonto": "1503.45.67894"
+      }
+    },
+    {
+      "identifikatorer": {
+        "Saksnummer": "MC-2026-105",
+        "referansenummer": "REF-7722-E",
+        "kundenummer": "CUST-20005"
+      },
+      "belop": {
+        "totalbelop": 18920,
+        "restHovedstol": 15000,
+        "opprinneligBelop": 15000,
+        "renter": 2200,
+        "gebyrer": 750,
+        "inkassosalear": 900,
+        "renterAvOmkostninger": 70
+      },
+      "rente": 20,
+      "datoer": {
+        "fakturadato": "12.09.2025",
+        "opprinneligForfallsdato": "26.09.2025",
+        "utstedtDato": "10.10.2025",
+        "betalingsfrist": "10.05.2026"
+      },
+      "parter": {
+        "inkassoselskap": "MultiCase Collections Ltd",
+        "Fordringshaver": "Property Rental Management",
+        "opprinneligFordringshaver": "Property Rental Management",
+        "skyldner": {
+          "navn": "Morgan Sample",
+          "fodselsnummer": "67890123456",
+          "telefonnummer": "+4700000000",
+          "epostadresse": "mock@eksempel.invalid",
+          "adresse": {
+            "gateadresse": "Apartment Complex 7",
+            "postnummer": "2020",
+            "poststed": "Tenant Village",
+            "land": "Norway"
+          }
+        }
+      },
+      "detaljer": {
+        "sakStatus": "Active",
+        "beskrivelse": "Unpaid rent from rental agreement.",
+        "grunnlagForKrav": "Lease agreement violation",
+        "sendteFakturaer": [
+          {
+            "fakturanummer": "INV-44001",
+            "fakturadato": "12.09.2025",
+            "forfallsdato": "26.09.2025",
+            "belop": 7500,
+            "beskrivelse": "Monthly rent - September 2025"
+          },
+          {
+            "fakturanummer": "INV-44002",
+            "fakturadato": "12.10.2025",
+            "forfallsdato": "26.10.2025",
+            "belop": 7500,
+            "beskrivelse": "Monthly rent - October 2025"
+          }
+        ],
+        "innbetalinger": [
+          {
+            "betalingsdato": "10.10.2025",
+            "belop": 0,
+            "referanse": "MOCK-INGEN-INNBETALING",
+            "kommentar": "Ingen innbetaling registrert i mockdata"
+          }
+        ],
+        "kravtype": "contract",
+        "notater": "Case 5 of 6 - Completely synthetic.",
+        "KID": "10000000005",
+        "mottakerKonto": "1503.45.67895"
+      }
+    },
+    {
+      "identifikatorer": {
+        "Saksnummer": "MC-2026-106",
+        "referansenummer": "REF-3366-F",
+        "kundenummer": "CUST-20006"
+      },
+      "belop": {
+        "totalbelop": 15924,
+        "restHovedstol": 13000,
+        "opprinneligBelop": 13000,
+        "renter": 1500,
+        "gebyrer": 400,
+        "inkassosalear": 950,
+        "renterAvOmkostninger": 74
+      },
+      "rente": 15,
+      "datoer": {
+        "fakturadato": "18.12.2025",
+        "opprinneligForfallsdato": "01.01.2026",
+        "utstedtDato": "15.01.2026",
+        "betalingsfrist": "15.05.2026"
+      },
+      "parter": {
+        "inkassoselskap": "MultiCase Collections Ltd",
+        "Fordringshaver": "Professional Services Consulting",
+        "opprinneligFordringshaver": "Professional Services Consulting",
+        "skyldner": {
+          "navn": "Alex Sample",
+          "fodselsnummer": "78901234567",
+          "telefonnummer": "+4700000000",
+          "epostadresse": "mock@eksempel.invalid",
+          "adresse": {
+            "gateadresse": "Business Plaza 201",
+            "postnummer": "0550",
+            "poststed": "Commerce Heights",
+            "land": "Norway"
+          }
+        }
+      },
+      "detaljer": {
+        "sakStatus": "Active",
+        "beskrivelse": "Unpaid consulting and professional services invoice.",
+        "grunnlagForKrav": "Services invoice",
+        "sendteFakturaer": [
+          {
+            "fakturanummer": "INV-33001",
+            "fakturadato": "18.12.2025",
+            "forfallsdato": "01.01.2026",
+            "belop": 6500,
+            "beskrivelse": "Consulting services Q4 2025"
+          },
+          {
+            "fakturanummer": "INV-33002",
+            "fakturadato": "18.12.2025",
+            "forfallsdato": "01.01.2026",
+            "belop": 6500,
+            "beskrivelse": "Project documentation and analysis"
+          }
+        ],
+        "innbetalinger": [
+          {
+            "betalingsdato": "15.01.2026",
+            "belop": 0,
+            "referanse": "MOCK-INGEN-INNBETALING",
+            "kommentar": "Ingen innbetaling registrert i mockdata"
+          }
+        ],
+        "kravtype": "invoice",
+        "notater": "Case 6 of 6 - Mock data for testing.",
+        "KID": "10000000006",
+        "mottakerKonto": "1503.45.67896"
+      }
+    }
+  ]
+}

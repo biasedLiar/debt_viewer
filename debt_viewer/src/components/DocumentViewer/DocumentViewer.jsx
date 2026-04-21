@@ -20,88 +20,127 @@ function formatCurrencyStrong(value) {
 
 function createMetadataFields() {
   return [
-    { key: 'source', label: 'Source', required: true },
-    { key: 'documentType', label: 'Document Type', required: true },
-    { key: 'extractionDate', label: 'Extraction Date', required: true },
-    { key: 'documentDate', label: 'Document Date' },
-    { key: 'pdfPath', label: 'PDF Path' },
-    { key: 'pdfLink', label: 'PDF Link' },
+    { key: 'kilde', label: 'Kilde', required: true },
+    { key: 'dokumenttype', label: 'Dokumenttype', required: true },
+    { key: 'uttrekkDato', label: 'Uttrekkdato', required: true },
+    { key: 'dokumentDato', label: 'Dokumentdato' },
+    { key: 'pdfLenke', label: 'PDF-lenke' },
   ];
 }
 
 function createCaseFields() {
   return [
     {
-      key: 'caseTotalAmount',
-      label: 'Case Total Amount',
+      key: 'rente',
+      label: 'Rente',
+      getValue: (sak) => sak?.rente,
+      formatter: (value) => <strong>{value} %</strong>,
+    },
+    {
+      key: 'saksnummer',
+      label: 'Saksnummer',
       required: true,
-      getValue: (debtCase) => debtCase?.amounts?.totalAmount,
-      formatter: formatCurrencyStrong,
+      getValue: (sak) => sak?.identifikatorer?.Saksnummer,
     },
     {
-      key: 'caseNumber',
-      label: 'Case Number',
+      key: 'referansenummer',
+      label: 'Referansenummer',
+      getValue: (sak) => sak?.identifikatorer?.referansenummer,
+    },
+    {
+      key: 'kundenummer',
+      label: 'Kundenummer',
+      getValue: (sak) => sak?.identifikatorer?.kundenummer,
+    },
+    {
+      key: 'sakInkassoselskap',
+      label: 'Inkassoselskap',
       required: true,
-      getValue: (debtCase) => debtCase?.identifiers?.caseNumber,
+      getValue: (sak) => sak?.parter?.inkassoselskap,
     },
     {
-      key: 'referenceNumber',
-      label: 'Reference Number',
-      getValue: (debtCase) => debtCase?.identifiers?.referenceNumber,
+      key: 'opprinneligFordringshaver',
+      label: 'Opprinnelig fordringshaver',
+      getValue: (sak) => sak?.parter?.opprinneligFordringshaver,
     },
     {
-      key: 'customerNumber',
-      label: 'Customer Number',
-      getValue: (debtCase) => debtCase?.identifiers?.customerNumber,
+      key: 'betalingsfrist',
+      label: 'Betalingsfrist',
+      getValue: (sak) => sak?.datoer?.betalingsfrist,
     },
     {
-      key: 'caseCollector',
-      label: 'Case Debt Collector',
-      required: true,
-      getValue: (debtCase) => debtCase?.parties?.debtCollector,
+      key: 'sakStatus',
+      label: 'Saksstatus',
+      getValue: (sak) => sak?.detaljer?.sakStatus,
     },
     {
-      key: 'principalAmount',
-      label: 'Principal Amount',
-      required: true,
-      getValue: (debtCase) => debtCase?.amounts?.principalAmount,
-      formatter: formatCurrency,
+      key: 'mottakerKonto',
+      label: 'Mottakerkonto',
+      getValue: (sak) => sak?.detaljer?.mottakerKonto,
     },
     {
-      key: 'paymentDeadline',
-      label: 'Payment Deadline',
-      getValue: (debtCase) => debtCase?.dates?.paymentDeadline,
+      key: 'KID',
+      label: 'KID',
+      getValue: (sak) => sak?.detaljer?.KID,
     },
-    {
-      key: 'caseStatus',
-      label: 'Case Status',
-      getValue: (debtCase) => debtCase?.details?.caseStatus,
-    },
+  ];
+}
+
+function createBelopBreakdownFields() {
+  return [
+    { key: 'restHovedstol', label: 'Rest hovedstol', formatter: formatCurrency },
+    { key: 'opprinneligBelop', label: 'Opprinnelig beløp', formatter: formatCurrency },
+    { key: 'renter', label: 'Renter', formatter: formatCurrency },
+    { key: 'gebyrer', label: 'Gebyrer', formatter: formatCurrency },
+    { key: 'inkassosalear', label: 'Inkassosalær', formatter: formatCurrency },
+    { key: 'renterAvOmkostninger', label: 'Renter av omkostninger', formatter: formatCurrency },
   ];
 }
 
 function createInvoiceFields() {
   return [
     {
-      key: 'amount',
-      label: 'Amount',
+      key: 'belop',
+      label: 'Beløp',
       formatter: formatCurrencyStrong,
     },
     {
-      key: 'invoiceNumber',
-      label: 'Invoice Number',
+      key: 'fakturanummer',
+      label: 'Fakturanummer',
     },
     {
-      key: 'invoiceDate',
-      label: 'Invoice Date',
+      key: 'fakturadato',
+      label: 'Fakturadato',
     },
     {
-      key: 'dueDate',
-      label: 'Due Date',
+      key: 'forfallsdato',
+      label: 'Forfallsdato',
     },
     {
-      key: 'description',
-      label: 'Description',
+      key: 'beskrivelse',
+      label: 'Beskrivelse',
+    },
+  ];
+}
+
+function createInnbetalingFields() {
+  return [
+    {
+      key: 'belop',
+      label: 'Beløp',
+      formatter: formatCurrencyStrong,
+    },
+    {
+      key: 'betalingsdato',
+      label: 'Betalingsdato',
+    },
+    {
+      key: 'referanse',
+      label: 'Referanse',
+    },
+    {
+      key: 'kommentar',
+      label: 'Kommentar',
     },
   ];
 }
@@ -111,9 +150,9 @@ function DocumentViewer({ documentData, warnings = [] }) {
     return <p>No document loaded.</p>;
   }
 
-  const cases = Array.isArray(documentData.cases) ? documentData.cases : [];
-  const title = documentData.debtCollector
-    || 'Debt Collection Document';
+  const cases = Array.isArray(documentData.saker) ? documentData.saker : [];
+  const title = documentData.inkassoselskap
+    || 'Inkassodokument';
 
   return (
     <article className="document-tile">
@@ -132,14 +171,14 @@ function DocumentViewer({ documentData, warnings = [] }) {
         </section>
       )}
 
-      <section className="total-amount-strip" aria-label="Total amount">
+      <section className="total-amount-strip" aria-label="Totalbeløp">
         <div className="total-amount-block">
-          <p className="total-amount-label">Total Amount</p>
-          <p className="total-amount-value">{formatCurrency(documentData.totalAmount)}</p>
+          <p className="total-amount-label">Totalbeløp</p>
+          <p className="total-amount-value">{formatCurrency(documentData.totalbelop)}</p>
         </div>
         <div className="total-amount-block">
-          <p className="total-amount-label">Number of Cases</p>
-          <p className="total-amount-value">{documentData.numberOfCases}</p>
+          <p className="total-amount-label">Antall saker</p>
+          <p className="total-amount-value">{documentData.antallSaker}</p>
         </div>
       </section>
 
@@ -147,7 +186,7 @@ function DocumentViewer({ documentData, warnings = [] }) {
         <summary className="metadata-details-summary">Document metadata</summary>
         <SectionRenderer
           title=""
-          data={documentData.documentMetadata}
+          data={documentData.dokumentMetadata}
           fields={createMetadataFields()}
         />
       </details>
@@ -158,35 +197,69 @@ function DocumentViewer({ documentData, warnings = [] }) {
           {cases.length === 0 ? (
             <p className="no-cases">No cases available.</p>
           ) : (
-            cases.map((debtCase, index) => {
-              const caseNumber = debtCase?.identifiers?.caseNumber;
-              const caseTitle = caseNumber
-                ? `Case ${index + 1} — ${caseNumber}`
-                : `Case ${index + 1}`;
-              const invoices = Array.isArray(debtCase?.details?.invoices)
-                ? debtCase.details.invoices
+            cases.map((sak, index) => {
+              const saksnummer = sak?.identifikatorer?.Saksnummer;
+              const caseTitle = saksnummer
+                ? `Sak ${index + 1} — ${saksnummer}`
+                : `Sak ${index + 1}`;
+              const fakturaer = Array.isArray(sak?.detaljer?.sendteFakturaer)
+                ? sak.detaljer.sendteFakturaer
+                : [];
+              const innbetalinger = Array.isArray(sak?.detaljer?.innbetalinger)
+                ? sak.detaljer.innbetalinger
                 : [];
               return (
-                <div key={caseNumber || `case-${index}`} className="case-item">
+                <div key={saksnummer || `sak-${index}`} className="case-item">
                   <div className="case-card">
+                    <h3 className="case-card-title">{caseTitle}</h3>
+                    <details className="belop-details">
+                      <summary className="belop-details-summary">
+                        <span className="belop-summary-label">Totalbeløp</span>
+                        <span className="belop-summary-value">{formatCurrencyStrong(sak?.belop?.totalbelop)}</span>
+                      </summary>
+                      <SectionRenderer
+                        title=""
+                        data={sak?.belop}
+                        fields={createBelopBreakdownFields()}
+                        className="belop-breakdown"
+                      />
+                    </details>
                     <SectionRenderer
-                      title={caseTitle}
-                      data={debtCase}
+                      title=""
+                      data={sak}
                       fields={createCaseFields()}
                       className="case-card-section"
                     />
-                    {invoices.length > 0 && (
+                    {fakturaer.length > 0 && (
                       <details className="invoice-details">
                         <summary className="invoice-details-summary">
-                          Invoices ({invoices.length})
+                          Fakturaer ({fakturaer.length})
                         </summary>
                         <div className="invoice-list">
-                          {invoices.map((invoice, invoiceIndex) => (
+                          {fakturaer.map((faktura, fakturaIndex) => (
                             <SectionRenderer
-                              key={invoice.invoiceNumber || `invoice-${invoiceIndex}`}
-                              title={`Invoice ${invoiceIndex + 1}`}
-                              data={invoice}
+                              key={faktura.fakturanummer || `faktura-${fakturaIndex}`}
+                              title={`Faktura ${fakturaIndex + 1}`}
+                              data={faktura}
                               fields={createInvoiceFields()}
+                              className="invoice-card"
+                            />
+                          ))}
+                        </div>
+                      </details>
+                    )}
+                    {innbetalinger.length > 0 && (
+                      <details className="invoice-details">
+                        <summary className="invoice-details-summary">
+                          Innbetalinger ({innbetalinger.length})
+                        </summary>
+                        <div className="invoice-list">
+                          {innbetalinger.map((innbetaling, innbetalingIndex) => (
+                            <SectionRenderer
+                              key={innbetaling.referanse || `innbetaling-${innbetalingIndex}`}
+                              title={`Innbetaling ${innbetalingIndex + 1}`}
+                              data={innbetaling}
+                              fields={createInnbetalingFields()}
                               className="invoice-card"
                             />
                           ))}
