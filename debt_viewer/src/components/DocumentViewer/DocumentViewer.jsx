@@ -147,7 +147,7 @@ function createInnbetalingFields() {
 
 function DocumentViewer({ documentData, warnings = [] }) {
   if (!documentData) {
-    return <p>No document loaded.</p>;
+    return <p>Ingen dokument lastet.</p>;
   }
 
   const cases = Array.isArray(documentData.saker) ? documentData.saker : [];
@@ -162,7 +162,7 @@ function DocumentViewer({ documentData, warnings = [] }) {
 
       {warnings.length > 0 && (
         <section className="document-warnings" aria-live="polite">
-          <h3>Schema Warnings</h3>
+          <h3>Skjemaadvarsler</h3>
           <ul>
             {warnings.map((warning, index) => (
               <li key={`${warning.path}-${index}`}>{warning.message}</li>
@@ -183,7 +183,7 @@ function DocumentViewer({ documentData, warnings = [] }) {
       </section>
 
       <details className="metadata-details">
-        <summary className="metadata-details-summary">Document metadata</summary>
+        <summary className="metadata-details-summary">Dokumentmetadata</summary>
         <SectionRenderer
           title=""
           data={documentData.dokumentMetadata}
@@ -192,10 +192,10 @@ function DocumentViewer({ documentData, warnings = [] }) {
       </details>
 
       <details className="cases-details" open>
-        <summary className="cases-details-summary">Cases</summary>
+        <summary className="cases-details-summary">Saker</summary>
         <section className="case-list-section">
           {cases.length === 0 ? (
-            <p className="no-cases">No cases available.</p>
+            <p className="no-cases">Ingen saker tilgjengelig.</p>
           ) : (
             cases.map((sak, index) => {
               const saksnummer = sak?.identifikatorer?.Saksnummer;

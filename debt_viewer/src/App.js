@@ -15,17 +15,17 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const TEST_DOCUMENTS = [
   {
     id: 'mock_debtor_document',
-    label: 'Mock document (2 cases)',
+    label: 'Mockdokument (2 saker)',
     result: normalizeDocument(mockDocument),
   },
   {
     id: 'mock_debtor_document_1case_10invoices',
-    label: 'Mock document (1 case, 10 invoices)',
+    label: 'Mockdokument (1 sak, 10 fakturaer)',
     result: normalizeDocument(mockDocument1Case),
   },
   {
     id: 'mock_debtor_document_6cases',
-    label: 'Mock document (6 cases)',
+    label: 'Mockdokument (6 saker)',
     result: normalizeDocument(mockDocument6Cases),
   },
 ];
@@ -278,7 +278,7 @@ function App() {
   return (
     <div className="App">
       <header className="app-header">
-        <h1>Debt Viewer</h1>
+        <h1>Gjeldsvisning</h1>
       </header>
 
       <main className="app-layout">
@@ -305,7 +305,7 @@ function App() {
             {documentCount > 1 && (
               <article className="document-tile document-summary-tile">
                 <header className="document-tile-header">
-                  <h2 className="document-tile-title">Grand Total</h2>
+                  <h2 className="document-tile-title">Samlet totalt</h2>
                 </header>
                 <section className="grand-total-layout" aria-label="Grand total">
                   <div className="grand-total-chart" aria-label="Totals by document">
@@ -313,13 +313,13 @@ function App() {
                   </div>
                   <div className="grand-total-metrics">
                     <div className="total-amount-block">
-                      <p className="total-amount-label">Grand Total Amount</p>
+                      <p className="total-amount-label">Samlet totalbeløp</p>
                       <p className="total-amount-value">
                         {grandTotalFormatter.format(grandTotal)}
                       </p>
                     </div>
                     <div className="total-amount-block">
-                      <p className="total-amount-label">Number of Debtors</p>
+                      <p className="total-amount-label">Antall skyldnere</p>
                       <p className="total-amount-value">{documentCount}</p>
                     </div>
                   </div>
@@ -341,13 +341,13 @@ function App() {
         <div className="modal-backdrop" role="presentation">
           <div className="modal" role="dialog" aria-modal="true" aria-labelledby="test-data-title">
             <div className="modal-header">
-              <h2 id="test-data-title">Choose test data</h2>
+              <h2 id="test-data-title">Velg testdata</h2>
               <button type="button" className="modal-close" onClick={handleCloseTestPicker}>
-                Close
+                Lukk
               </button>
             </div>
             {availableTestDocuments.length === 0 ? (
-              <p className="modal-empty">All test documents are already loaded.</p>
+              <p className="modal-empty">Alle testdokumenter er allerede lastet.</p>
             ) : (
               <ul className="modal-list">
                 {availableTestDocuments.map((doc) => (

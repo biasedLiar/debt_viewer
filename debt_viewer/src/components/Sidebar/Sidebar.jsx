@@ -12,21 +12,21 @@ function Sidebar({ documents, onChooseTestData, onUploadRealData, onRemoveDocume
   return (
     <aside className="sidebar" aria-label="Document controls">
       <div className="sidebar-section">
-        <h2>Documents</h2>
+        <h2>Dokumenter</h2>
         <div className="sidebar-actions">
           <button type="button" className="sidebar-button" onClick={onChooseTestData}>
-            Choose Test Data
+            Velg testdata
           </button>
           <button type="button" className="sidebar-button" onClick={onUploadRealData}>
-            Upload Real Data
+            Last opp data
           </button>
         </div>
       </div>
 
       <div className="sidebar-section">
-        <h3>Current Documents</h3>
+        <h3>Åpne dokumenter</h3>
         {documents.length === 0 ? (
-          <p className="sidebar-empty">No documents loaded.</p>
+          <p className="sidebar-empty">Ingen dokumenter lastet.</p>
         ) : (
           <ul className="sidebar-list">
             {documents.map((doc, index) => (
@@ -35,12 +35,12 @@ function Sidebar({ documents, onChooseTestData, onUploadRealData, onRemoveDocume
                   type="button"
                   className="sidebar-item"
                   onClick={() => onRemoveDocument?.(doc.id)}
-                  aria-label={`Remove ${getDocumentLabel(doc.data, `Document ${index + 1}`)}`}
+                  aria-label={`Fjern ${getDocumentLabel(doc.data, `Dokument ${index + 1}`)}`}
                 >
                   <span className="sidebar-item-title">
-                    {getDocumentLabel(doc.data, `Document ${index + 1}`)}
+                    {getDocumentLabel(doc.data, `Dokument ${index + 1}`)}
                   </span>
-                  <span className="sidebar-item-action">Remove</span>
+                  <span className="sidebar-item-action">Fjern</span>
                 </button>
               </li>
             ))}
